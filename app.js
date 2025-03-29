@@ -11,11 +11,17 @@ const beveragesTeaRouter = require("./Routes/NavbarRoutes/beveragesTeaRoute")
 const gheeVanaspatiRouter = require("./Routes/NavbarRoutes/gheeVanaspati")
 const productDetailRouter = require("./Routes/productdetail")
 
-app.use(cors({origin: 'http://localhost:5173'}))
+app.use(cors({
+    origin: 'https://bigbasket-ft.vercel.app',
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}))
+
 app.use(express.json())
 app.get("/", (req, res) => {
     res.send("welcome to the Home Page")
 })
+
 app.use("/", userRouter)
 app.use("/", fruitsVeggiesRouter)
 app.use("/", beveragesTeaRouter)
